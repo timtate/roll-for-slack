@@ -40,7 +40,7 @@ $token = $_POST['token'];
 # You can keep this one, or update it to something that makes more sense for you
 $user_agent = "Dice Roll for Slack/1.0 (potentato@gmail.com)";
 
-# We're just taking the text exactly as it's typed by the user. If it's not a valid domain, isitup.org will respond with a `3`.
+# We're just taking the text exactly as it's typed by the user. If it's not a valid request, rolz.org will respond with an error.
 # We want to get the JSON version back (you can also get plain text).
 $url_to_check = "https://rolz.org/api/?".$text.".json";
 
@@ -58,7 +58,7 @@ $ch_response = curl_exec($ch);
 # Close the connection 
 curl_close($ch);
 
-# Decode the JSON array sent back by isitup.org
+# Decode the JSON array sent back by rolz.org
 $response_array = json_decode($ch_response,true);
 
 # Build our response 
